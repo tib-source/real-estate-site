@@ -1,5 +1,5 @@
-import React from "react";
-import styled, { css } from "styled-components";
+import React, { useState, useRef } from "react";
+import styled, { css, keyframes } from "styled-components";
 import { Button } from "./Button";
 import {
   BsFillArrowRightCircleFill,
@@ -23,6 +23,26 @@ const HeroWrapper = styled.div`
   overflow: hidden;
 `;
 
+const rightFadeIn = keyframes`
+0%{
+  transform: scale(1.2) translateX(50px);
+  }
+100%{
+  transform: scale(1.0) translateX(0);
+}
+`;
+
+const leftFadeIn = keyframes`
+0%{
+  transform: scale(1.2) translateX(-50px);
+  filter: blur(10px);
+}
+100%{
+  opacity: 1;
+  transform: scale(1) translateX(0);
+}
+`;
+
 const HeroSlide = styled.div`
   z-index: 1;
   width: 100%;
@@ -37,6 +57,17 @@ const HeroSlider = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.4s ease-in;
+
+  &.left {
+    display: flex;
+    animation: ${leftFadeIn} 0.3s cubic-bezier(0, 0.93, 0.28, 0.94);
+    animation-fill-mode: forwards;
+  }
+  &.right {
+    animation: ${rightFadeIn} 0.3s cubic-bezier(0, 0.93, 0.28, 0.94);
+    animation-fill-mode: forwards;
+  }
 
   &::before {
     content: "";
@@ -71,7 +102,7 @@ const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 1600px;
-  width: calc(100% - 100px);
+  width: calc(100% - 400px);
   color: white;
 
   h1 {
@@ -118,33 +149,55 @@ const ArrowLeft = styled(BsFillArrowLeftCircleFill)`
 const ArrowRight = styled(BsFillArrowRightCircleFill)`
   ${ArrowButton}
 `;
+
 const Hero = ({ slides }) => {
+  const [current, setCurrent] = useState(0);
+  const length = slides.length;
+  const [right, setRight] = useState(true);
+  const timeout = useRef(null);
+
+  const nextSlide = () => {
+    setRight(true);
+    setCurrent(current === length - 1 ? 0 : current + 1);
+  };
+
+  const prevSlide = () => {
+    setRight(false);
+    setCurrent(current === 0 ? length - 1 : current - 1);
+  };
+  console.log(right);
+
+  if (!Array.isArray(slides) || slides.length === 0) {
+    return null;
+  }
   return (
     <HeroSection>
       <HeroWrapper>
         {slides.map((elem, index) => (
           <HeroSlide key={index}>
-            <HeroSlider>
-              <HeroImage src={elem.image} />
-              <HeroContent>
-                <h1>{elem.title}</h1>
-                <p>{elem.price}</p>
-                <Button
-                  to={elem.path}
-                  primary="true"
-                  css={`
-                    max-width: 160px;
-                  `}
-                >
-                  {elem.label}
-                </Button>
-              </HeroContent>
-            </HeroSlider>
+            {index === current && (
+              <HeroSlider className={right ? "right" : "left"}>
+                <HeroImage src={elem.image} />
+                <HeroContent>
+                  <h1>{elem.title}</h1>
+                  <p>{elem.price}</p>
+                  <Button
+                    to={elem.path}
+                    primary="true"
+                    css={`
+                      max-width: 160px;
+                    `}
+                  >
+                    {elem.label}
+                  </Button>
+                </HeroContent>
+              </HeroSlider>
+            )}
           </HeroSlide>
         ))}
         <SliderButtons>
-          <ArrowLeft />
-          <ArrowRight />
+          <ArrowLeft onClick={prevSlide} />
+          <ArrowRight onClick={nextSlide} />
         </SliderButtons>
       </HeroWrapper>
     </HeroSection>
