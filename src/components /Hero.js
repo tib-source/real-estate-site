@@ -52,7 +52,7 @@ const HeroContent = styled.div`
   z-index: 10;
   display: flex;
   flex-direction: column;
-  max-width: 1600;
+  max-width: 1600px;
   width: calc(100%-100px);
   color: white;
 
@@ -60,13 +60,21 @@ const HeroContent = styled.div`
     font-size: clamp(1rem, 8vh, 2rem);
   }
 `;
-const SliderButtons = styled.div``;
+const SliderButtons = styled.div`
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  display: flex;
+  z-index: 10;
+`;
 
 const ArrowButton = css`
-  font-size: 30px;
-  color: black;
+  width: 30px;
+  height: 30px;
+  color: white;
   cursor: pointer;
   border-radius: 50px;
+  margin-right: 1rem;
   user-select: none;
   transition: 0.3s;
 
