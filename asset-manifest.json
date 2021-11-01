@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.js": "/real-estate-site/static/js/main.f0715e39.chunk.js",
+    "main.js.map": "/real-estate-site/static/js/main.f0715e39.chunk.js.map",
+    "runtime-main.js": "/real-estate-site/static/js/runtime-main.c8ec01cd.js",
+    "runtime-main.js.map": "/real-estate-site/static/js/runtime-main.c8ec01cd.js.map",
+    "static/js/2.2a890d28.chunk.js": "/real-estate-site/static/js/2.2a890d28.chunk.js",
+    "static/js/2.2a890d28.chunk.js.map": "/real-estate-site/static/js/2.2a890d28.chunk.js.map",
+    "static/js/3.042fc914.chunk.js": "/real-estate-site/static/js/3.042fc914.chunk.js",
+    "static/js/3.042fc914.chunk.js.map": "/real-estate-site/static/js/3.042fc914.chunk.js.map",
+    "index.html": "/real-estate-site/index.html",
+    "static/js/2.2a890d28.chunk.js.LICENSE.txt": "/real-estate-site/static/js/2.2a890d28.chunk.js.LICENSE.txt",
+    "static/media/interior.b0136fa0.jpg": "/real-estate-site/static/media/interior.b0136fa0.jpg",
+    "static/media/luxury-1.bae59855.jpg": "/real-estate-site/static/media/luxury-1.bae59855.jpg",
+    "static/media/mansion-2.d8432df5.jpg": "/real-estate-site/static/media/mansion-2.d8432df5.jpg",
+    "static/media/vila-1.71b025ca.jpg": "/real-estate-site/static/media/vila-1.71b025ca.jpg",
+    "static/media/vila-3.f0ca23ff.jpg": "/real-estate-site/static/media/vila-3.f0ca23ff.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c8ec01cd.js",
+    "static/js/2.2a890d28.chunk.js",
+    "static/js/main.f0715e39.chunk.js"
+  ]
+}
