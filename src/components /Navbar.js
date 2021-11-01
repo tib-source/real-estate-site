@@ -27,6 +27,7 @@ const NavLink = css`
 `;
 const Logo = styled(Link)`
   ${NavLink}
+  font-size: 1.25rem;
   font-style: italic;
   font-weight: 700;
 `;
@@ -38,6 +39,7 @@ const MenuBars = styled(FaBars)`
     display: block;
     color: white;
     cursor: pointer;
+    font-size: 1.25rem;
   }
 `;
 const NavMenu = styled.div`
@@ -61,11 +63,11 @@ const NavBtn = styled.div`
     display: none;
   }
 `;
-const Navbar = () => {
+const Navbar = ({ toggleMenu }) => {
   return (
     <Nav>
       <Logo to="/">ELIXR</Logo>
-      <MenuBars />
+      <MenuBars onClick={toggleMenu} />
       <NavMenu>
         {menuData.map((item, index) => {
           return (

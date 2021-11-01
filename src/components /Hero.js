@@ -25,17 +25,19 @@ const HeroWrapper = styled.div`
 
 const rightFadeIn = keyframes`
 0%{
-  transform: scale(1.2) translateX(50px);
+  filter: blur(5px);
+  transform: scale(1.2) translateX(60px);
   }
 100%{
+  opacity: 1;
   transform: scale(1.0) translateX(0);
 }
 `;
 
 const leftFadeIn = keyframes`
 0%{
-  transform: scale(1.2) translateX(-50px);
-  filter: blur(10px);
+  transform: scale(1.2) translateX(-60px);
+  filter: blur(5px);
 }
 100%{
   opacity: 1;
@@ -102,7 +104,7 @@ const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 1600px;
-  width: calc(100% - 400px);
+  width: calc(100% - 100px);
   color: white;
 
   h1 {
