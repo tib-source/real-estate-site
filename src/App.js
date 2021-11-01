@@ -6,7 +6,7 @@ import { SliderData } from "./data/SliderData";
 import Dropdown from "./components /Dropdown";
 import { useState } from "react";
 import InfoSection from "./components /InfoSection";
-import { InfoData } from "./data/InfoData";
+import { InfoData, InfoDataTwo } from "./data/InfoData";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +21,7 @@ function App() {
       {isOpen && <Dropdown toggleMenu={toggleMenu} />}
       <Hero slides={SliderData} />
       <InfoSection {...InfoData} />
+      <InfoSection {...InfoDataTwo} />
     </Router>
   );
 }

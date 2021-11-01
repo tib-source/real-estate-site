@@ -72,13 +72,13 @@ const InfoSection = ({
   return (
     <Section>
       <Content>
-        <ColLeft>
+        <ColLeft reverse={reverse}>
           <h1>{heading}</h1>
           <p>{paragraphOne}</p>
           <p>{paragraphTwo}</p>
           <Button to="/homes">{buttonLabel}</Button>
         </ColLeft>
-        <ColRight>
+        <ColRight reverse={reverse}>
           <img src={image} alt="" />
         </ColRight>
       </Content>
